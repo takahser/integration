@@ -1,0 +1,34 @@
+version: '3.4'
+services:
+  provider-api:
+    build:
+      context: ./provider
+      dockerfile: dev.dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./provider/:/usr/src/app
+      - ./redspot/:/usr/src/redspot
+    environment:
+      - CONTRACT_ADDRESS
+      - PROVIDER_ADDRESS
+      - PROVIDER_MNEMONIC
+    links:
+      - substrate-node
+      - mongodb
+  mongodb:
+    image: mongo:5.0.4
+    volumes:
+      - ./mongodb/:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    ports:
+      - "27017:27017"
+  substrate-node:
+    build:
+      context: ./docker/
+      dockerfile: Substrate.dockerfile
+    ports:
+      - "9615:9615"
+      - "9944:9944"

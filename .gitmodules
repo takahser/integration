@@ -1,0 +1,9 @@
+[submodule "provider"]
+	path = provider
+	url = git@github.com:prosopo-io/provider.git
+[submodule "protocol"]
+	path = protocol
+	url = git@github.com:prosopo-io/protocol.git
+[submodule "redspot"]
+	path = redspot
+	url = git@github.com:prosopo-io/redspot.git
