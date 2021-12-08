@@ -1,3 +1,4 @@
 #!/bin/bash
 git submodule update --init --recursive --force --checkout
-cd ./protocol && yarn
+cd ./redspot && yarn && yarn build && cd ..
+cd ./protocol && yarn && cd ..
