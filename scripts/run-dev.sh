@@ -1,6 +1,6 @@
 #!/bin/bash
 # spin up the substrate node
-docker-compose up substrate-node -d
+docker compose up substrate-node -d
 echo "Waiting for the substrate node to start up..."
 sleep 10
 
@@ -16,8 +16,8 @@ IFS=$'
 export PROVIDER_ADDRESS=${PROVIDER_KEYRING[0]}
 export PROVIDER_MNEMONIC=${PROVIDER_KEYRING[1]}
 
-docker-compose up mongodb -d
-docker-compose up provider-api -d
+docker compose up mongodb -d
+docker compose up provider-api -d
 
 echo "Dev env up! You can now interact with the provider-api."
 CONTAINER_NAME=$(docker ps -q -f name=provider-api)
