@@ -1,2 +1,2 @@
 #!/bin/bash
-git submodule init --recursive --checkout --force
+git submodule update --init --recursive --force --checkout
