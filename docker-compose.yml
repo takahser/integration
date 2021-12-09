@@ -8,7 +8,7 @@ services:
       - "3000:3000"
     volumes:
       - ./provider/:/usr/src/app
-      - ./protocol/artifacts:/usr/src/artifacts
+      - ./protocol/artifacts:/usr/src/app/artifacts
       - ./redspot/:/usr/src/redspot
     environment:
       - CONTRACT_ADDRESS
