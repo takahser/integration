@@ -21,4 +21,4 @@ docker compose up provider-api -d
 
 echo "Dev env up! You can now interact with the provider-api."
 CONTAINER_NAME=$(docker ps -q -f name=provider-api)
-docker exec -it $CONTAINER_NAME sh
+docker exec -it $CONTAINER_NAME zsh
