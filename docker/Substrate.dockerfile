@@ -14,7 +14,7 @@ RUN . ~/.cargo/env && \
 RUN . ~/.cargo/env && \
     git clone https://github.com/paritytech/substrate-contracts-node && \
     cd substrate-contracts-node && \
-    git checkout 8d91b8e578065a7c06433cbd41ac059bf478a0bd && \
+    git checkout 19395a8e00d87328ecfe5a424fee6b19e379daec && \
     cargo build && \
     ./target/debug/substrate-contracts-node --dev --tmp --version
 
@@ -25,5 +25,6 @@ CMD [ "./substrate-contracts-node/target/debug/substrate-contracts-node", \
         "--unsafe-ws-external", \
         "--prometheus-external", \
         "--dev", \
-        "--tmp" \
+        "--tmp", \
+        "-lerror,runtime::contracts=debug"
     ]

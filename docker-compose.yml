@@ -10,10 +10,13 @@ services:
       - ./provider/:/usr/src/app
       - ./protocol/artifacts:/usr/src/app/artifacts
       - ./redspot/:/usr/src/redspot
+      - ../data/:/usr/src/data
     environment:
       - CONTRACT_ADDRESS
       - PROVIDER_ADDRESS
       - PROVIDER_MNEMONIC
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
     links:
       - substrate-node
       - mongodb

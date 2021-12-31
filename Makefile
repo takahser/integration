@@ -3,3 +3,6 @@ setup:
 
 dev:
 	./scripts/run-dev.sh
+
+restart:
+	./scripts/restart-chain.sh

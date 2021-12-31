@@ -1,4 +1,34 @@
 #!/bin/bash
+function usage() {
+    cat <<USAGE
+
+    Usage: $0 [--provider_register]
+
+    Options:
+        --provider_setup:  register, stake, and add dataset for provider
+
+USAGE
+    exit 1
+}
+
+PROVIDER_SETUP=false
+
+while [ "$1" != "" ]; do
+    case $1 in
+    --provider_setup)
+        PROVIDER_SETUP=true
+        ;;
+    -h | --help)
+        usage # run usage function
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
+    esac
+    shift # remove the current value for `$1` and use the next
+done
+
 # spin up the substrate node
 docker compose up substrate-node -d
 echo "Waiting for the substrate node to start up..."
@@ -20,5 +50,16 @@ docker compose up mongodb -d
 docker compose up provider-api -d
 
 echo "Dev env up! You can now interact with the provider-api."
+echo "PROVIDER_ADDRESS $(echo $PROVIDER_ADDRESS)"
 CONTAINER_NAME=$(docker ps -q -f name=provider-api)
+
+# give the provider account some funds
+echo "Sending funds to the Provider account and registering the provider"
+docker exec -it $CONTAINER_NAME zsh -c 'yarn setup provider'
+
+#if [ PROVIDER_SETUP ]; then
+#  echo "Registering the Provider account, staking, and adding a dataset"
+#  docker exec -it $CONTAINER_NAME zsh -c 'yarn dev-provider-register && yarn dev-provider-stake && yarn dev-provider-dataset';
+#fi
+
 docker exec -it $CONTAINER_NAME zsh
