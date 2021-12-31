@@ -26,5 +26,5 @@ CMD [ "./substrate-contracts-node/target/debug/substrate-contracts-node", \
         "--prometheus-external", \
         "--dev", \
         "--tmp", \
-        "-lerror,runtime::contracts=debug"
+        "-lerror,runtime::contracts=debug" \
     ]
