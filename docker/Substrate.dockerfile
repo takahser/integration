@@ -1,8 +1,8 @@
-FROM debian:bookworm-slim
+FROM debian:bookworm-slim AS base
 
 RUN apt update
 RUN apt install -y git clang curl libssl-dev llvm libudev-dev
-
+RUN apt install -y pkg-config libssl-dev
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 RUN . ~/.cargo/env && \
@@ -12,19 +12,21 @@ RUN . ~/.cargo/env && \
     rustup target add wasm32-unknown-unknown --toolchain nightly
 
 RUN . ~/.cargo/env && \
-    git clone https://github.com/paritytech/substrate-contracts-node && \
-    cd substrate-contracts-node && \
-    git checkout 19395a8e00d87328ecfe5a424fee6b19e379daec && \
-    cargo build && \
-    ./target/debug/substrate-contracts-node --dev --tmp --version
+    git clone https://github.com/paritytech/substrate
+
+RUN . ~/.cargo/env && \
+    cd substrate && \
+    cargo build --locked --release
 
 EXPOSE 9615
 EXPOSE 9944
 
-CMD [ "./substrate-contracts-node/target/debug/substrate-contracts-node", \
-        "--unsafe-ws-external", \
-        "--prometheus-external", \
-        "--dev", \
-        "--tmp", \
-        "-lerror,runtime::contracts=debug" \
-    ]
+WORKDIR "substrate"
+
+RUN stat ./target/release/
+
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
+COPY ./boot.sh /home/root/boot.sh
+USER root
+RUN chmod +x /home/root/boot.sh
+CMD /home/root/boot.sh
