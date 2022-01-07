@@ -26,6 +26,6 @@ CONTAINER_NAME=$(docker ps -q -f name=provider-api)
 
 # give the provider account some funds
 echo "Sending funds to the Provider account and registering the provider"
-docker exec -it $CONTAINER_NAME zsh -c 'yarn setup provider'
+docker exec -it $CONTAINER_NAME zsh -c 'yarn build && yarn setup provider'
 
 docker exec -it $CONTAINER_NAME zsh
