@@ -20,6 +20,8 @@ services:
     links:
       - substrate-node
       - mongodb
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   mongodb:
     image: mongo:5.0.4
     volumes:
