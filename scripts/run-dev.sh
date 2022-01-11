@@ -8,7 +8,11 @@ sleep 10
 # install protocol packages
 $(cd protocol && yarn);
 
-# deploy contract and extract its address
+# deploy the example dapp contract and extract its address
+{ DAPP_CONTRACT_ADDRESS=$(cd ./dapp-example && yarn deploy | tee /dev/fd/3 | grep 'contract address:' | awk -F ':  ' '{print $2}'); } 3>&1
+export DAPP_CONTRACT_ADDRESS=$DAPP_CONTRACT_ADDRESS
+
+# deploy prosopo contract and extract its address
 { CONTRACT_ADDRESS=$(cd ./protocol && yarn deploy | tee /dev/fd/3 | grep 'contract address:' | awk -F ':  ' '{print $2}'); } 3>&1
 export CONTRACT_ADDRESS=$CONTRACT_ADDRESS
 
