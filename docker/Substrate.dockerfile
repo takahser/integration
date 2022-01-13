@@ -20,6 +20,7 @@ RUN . ~/.cargo/env && \
 
 EXPOSE 9615
 EXPOSE 9944
+EXPOSE 9933
 
 WORKDIR "substrate"
 

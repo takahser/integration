@@ -13,6 +13,7 @@ services:
       - ../data/:/usr/src/data
     environment:
       - CONTRACT_ADDRESS
+      - DAPP_CONTRACT_ADDRESS
       - PROVIDER_ADDRESS
       - PROVIDER_MNEMONIC
       - MONGO_INITDB_ROOT_USERNAME=root
@@ -38,3 +39,4 @@ services:
     ports:
       - "9615:9615"
       - "9944:9944"
+      - "9933:9933"
