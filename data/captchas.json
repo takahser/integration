@@ -49,6 +49,11 @@
       ]
     },
     {
+      "solution": [
+        1,
+        8,
+        9
+      ],
       "salt": "0x02",
       "target": "train",
       "items": [
@@ -91,8 +96,13 @@
       ]
     },
     {
+      "solution": [
+        5,
+        6,
+        7
+      ],
       "salt": "0x03",
-      "target": "car",
+      "target": "plane",
       "items": [
         {
           "path": "/usr/src/data/img/01.01.jpeg",
