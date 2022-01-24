@@ -8,6 +8,9 @@ sleep 10
 # install protocol packages
 $(cd protocol && yarn);
 
+# Install the contract builder
+cargo install cargo-contract --vers ^0.16 --force --locked
+
 # deploy prosopo contract and extract its address
 { CONTRACT_ADDRESS=$(cd ./protocol && yarn deploy | tee /dev/fd/3 | grep 'contract address:' | awk -F ':  ' '{print $2}'); } 3>&1
 export CONTRACT_ADDRESS=$CONTRACT_ADDRESS
