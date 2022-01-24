@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#!!!!!!!!! FOLLOW SUBSTRATE SETUP INITIALLY AT https://docs.substrate.io/v3/getting-started/installation/ !!!!!!!!!!!!!!
+
 # spin up the substrate node
 docker compose up substrate-node -d
 echo "Waiting for the substrate node to start up..."
