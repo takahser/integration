@@ -10,7 +10,7 @@ services:
       - ./provider/:/usr/src/app
       - ./protocol/artifacts:/usr/src/app/artifacts
       - ./redspot/:/usr/src/redspot
-      - ../data/:/usr/src/data
+      - ./data/:/usr/src/data
     environment:
       - CONTRACT_ADDRESS
       - DAPP_CONTRACT_ADDRESS

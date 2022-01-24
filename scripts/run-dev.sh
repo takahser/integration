@@ -44,6 +44,9 @@ docker compose up provider-api -d
 
 CONTAINER_NAME=$(docker ps -q -f name=provider-api)
 
+echo "Installing packages for redspot and building"
+docker exec -it $CONTAINER_NAME zsh -c 'cd /usr/src/redspot && yarn && yarn build'
+
 echo "Sending funds to the Provider account and registering the provider"
 docker exec -it $CONTAINER_NAME zsh -c 'yarn && yarn build && yarn setup provider && yarn setup dapp'
 
