@@ -21,6 +21,8 @@ And run the dev script, that would:
 
 `make dev`
 
+- Substrate might take 5 minutes to start for the first time, so will want to run `make dev` again (`make dev` is reliant on substrate running)
+
 Install deps on the provider container:
 `cd /usr/src/app && yarn`
 
