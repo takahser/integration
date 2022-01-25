@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#!!!!!!!!! FOLLOW SUBSTRATE SETUP INITIALLY AT https://docs.substrate.io/v3/getting-started/installation/ !!!!!!!!!!!!!!
+
 # spin up the substrate node
 docker compose up substrate-node -d
 echo "Waiting for the substrate node to start up..."
@@ -7,6 +9,9 @@ sleep 10
 
 # install protocol packages
 $(cd protocol && yarn);
+
+# Install the contract builder
+cargo install cargo-contract --vers ^0.16 --force --locked
 
 # deploy prosopo contract and extract its address
 { CONTRACT_ADDRESS=$(cd ./protocol && yarn deploy | tee /dev/fd/3 | grep 'contract address:' | awk -F ':  ' '{print $2}'); } 3>&1
@@ -43,6 +48,9 @@ docker compose up mongodb -d
 docker compose up provider-api -d
 
 CONTAINER_NAME=$(docker ps -q -f name=provider-api)
+
+echo "Installing packages for redspot and building"
+docker exec -it $CONTAINER_NAME zsh -c 'cd /usr/src/redspot && yarn && yarn build'
 
 echo "Sending funds to the Provider account and registering the provider"
 docker exec -it $CONTAINER_NAME zsh -c 'yarn && yarn build && yarn setup provider && yarn setup dapp'
