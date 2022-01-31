@@ -111,6 +111,18 @@ Run the API server
 yarn start --api
 ```
 
+The API contains functions that will be required for the frontend captcha interface.
+
+| API Resource | Function |
+| --------------- | --------------- |
+|`/v1/prosopo/random_provider/`| Get a random provider based on AccountId |
+| `/v1/prosopo/providers/` | Get list of all provider IDs |
+| `/v1/prosopo/dapps/` | Get list of all dapp IDs |
+| `/v1/prosopo/provider/:providerAccount` | Get details of a specific Provider account |
+| `/v1/prosopo/provider/captcha/:datasetId/:userAccount` | Get captchas to solve |
+| `/v1/prosopo/provider/solution` | Submit captcha solutions |
+
+
 # Dev Setup Script
 The following commands can be run during development to populate the contract with dummy data.
 
