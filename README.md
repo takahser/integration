@@ -15,11 +15,12 @@ Start by pulling submodules using
 
 `make setup`
 
-And run the dev script, that would:
-- spin up the contract node in a container
+And run the dev script, which will perform the following tasks:
+- spin up substrate in a container, running in contracts mode
 - deploy the [dapp-example](https://github.com/prosopo-io/dapp-example) contract
 - deploy the [prosopo](https://github.com/prosopo-io/protocol/) contract
 - setup a container with the provider code
+- setup a mongoDB container
 
 `make dev`
 
@@ -27,7 +28,7 @@ And run the dev script, that would:
 
 Once `make dev` is complete, you will be in a shell in the provider container.
 
-Dependencies should have been installed but you can install the dependencies if they are missing using the following command:
+Dependencies should have been installed but you can install the dependencies using the following command if they are missing:
 
 ```bash
 cd /usr/src/app && yarn
@@ -47,17 +48,31 @@ The `PROVIDER_MNEMONIC` env variable must be set for any commands that interact 
 yarn start provider_register --fee=10 --serviceOrigin=https://localhost:8282 --payee=Provider --address ADDRESS
 ```
 
+| Param | Description |
+| --------------- | --------------- |
+| Fee | The amount the Provider charges or pays per captcha approval / disapproval |
+| serviceOrigin | The location of the Provider's service |
+| Payee | Who is paid on successful captcha completion (`Provider` or `Dapp`) |
+| Address | Address of the Provider |
+
 ## Update a provider
 
 ```bash
 yarn start provider_update --fee=10 --serviceOrigin=https://localhost:8282 --payee=Provider --address ADDRESS
 ```
 
+Params are the same as `provider_register`
+
 ## Add a dataset for a Provider
 
 ```bash
 yarn start provider_add_data_set --file /usr/src/data/captchas.json
 ```
+
+| Param | Description |
+| --------------- | --------------- |
+| File | JSON file containing details of captchas |
+
 # API
 
 Run the API server
