@@ -38,7 +38,7 @@ Default dev data should have been populated in the contract - one registered Pro
 
 Now you can work interact with the provider cli or start the api server.
 
-## CLI
+## Command Line Interface
 
 The `PROVIDER_MNEMONIC` env variable must be set for any commands that interact with the Prosopo contract.
 
