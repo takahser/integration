@@ -38,11 +38,11 @@ Default dev data should have been populated in the contract - one registered Pro
 
 Now you can work interact with the provider cli or start the api server.
 
-# CLI
+## CLI
 
 The `PROVIDER_MNEMONIC` env variable must be set for any commands that interact with the Prosopo contract.
 
-## Register a provider
+### Register a provider
 
 ```bash
 yarn start provider_register --fee=10 --serviceOrigin=https://localhost:8282 --payee=Provider --address ADDRESS
@@ -55,7 +55,7 @@ yarn start provider_register --fee=10 --serviceOrigin=https://localhost:8282 --p
 | Payee | Who is paid on successful captcha completion (`Provider` or `Dapp`) |
 | Address | Address of the Provider |
 
-## Update a provider
+### Update a provider
 
 ```bash
 yarn start provider_update --fee=10 --serviceOrigin=https://localhost:8282 --payee=Provider --address ADDRESS
@@ -63,7 +63,7 @@ yarn start provider_update --fee=10 --serviceOrigin=https://localhost:8282 --pay
 
 Params are the same as `provider_register`
 
-## Add a dataset for a Provider
+### Add a dataset for a Provider
 
 ```bash
 yarn start provider_add_data_set --file /usr/src/data/captchas.json
@@ -75,7 +75,7 @@ yarn start provider_add_data_set --file /usr/src/data/captchas.json
 
 File format can be viewed [here](https://github.com/prosopo-io/provider/blob/master/tests/mocks/data/captchas.json).
 
-## De-register a Provider
+### De-register a Provider
 
 ```bash
 yarn start provider_deregister --address ADDRESS
@@ -85,7 +85,7 @@ yarn start provider_deregister --address ADDRESS
 | --------------- | --------------- |
 | Address | Address of the Provider |
 
-## Unstake funds
+### Unstake funds
 
 ```bash
 yarn start provider_unstake --value VALUE
@@ -95,7 +95,7 @@ yarn start provider_unstake --value VALUE
 | --------------- | --------------- |
 | Value | The amount of funds to unstake from the contract |
 
-## List Provider accounts in contract
+### List Provider accounts in contract
 
 ```bash
 yarn start provider_accounts
@@ -103,7 +103,7 @@ yarn start provider_accounts
 
 
 
-# API
+## API
 
 Run the API server
 
@@ -123,7 +123,7 @@ The API contains functions that will be required for the frontend captcha interf
 | `/v1/prosopo/provider/solution` | Submit captcha solutions |
 
 
-# Dev Setup Script
+## Dev Setup Script
 The following commands can be run during development to populate the contract with dummy data.
 
 | Command | Function | Executed during `make dev` |
