@@ -36,9 +36,9 @@ MNEMONIC_COUNT=$(echo ${PROVIDER_KEYRING[1]} | wc -w);
 if [[ $MNEMONIC_COUNT -ne 12 ]]; then
 
   echo "PROVIDER_MNEMONIC not set!"
-  echo "Provider keyring index 0:  $PROVIDER_KEYRING[0]"
-  echo "Provider keyring index 1:  $PROVIDER_KEYRING[1]"
-  echo "Provider keyring index 2:  $PROVIDER_KEYRING[2]"
+  echo "Provider keyring index 0:  ${echo $PROVIDER_KEYRING[0]}"
+  echo "Provider keyring index 1:  ${echo $PROVIDER_KEYRING[1]}"
+  echo "Provider keyring index 2:  ${echo $PROVIDER_KEYRING[2]}"
   exit 1
 else
   echo "PROVIDER_MNEMONIC set"

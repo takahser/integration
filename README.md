@@ -11,22 +11,71 @@ Integrates protocol and provider for development purposes
 - if it asks you to run something like this `rustup component add rust-src --toolchain nightly-x86_64-apple-darwin` then please do it (OSX)
 
 # Usage
-Start by pulling submodules
+Start by pulling submodules using
+
 `make setup`
 
 And run the dev script, that would:
-- spin up the contract node
-- deploy the contract
-- setup a node container with provider code
+- spin up the contract node in a container
+- deploy the [dapp-example](https://github.com/prosopo-io/dapp-example) contract
+- deploy the [prosopo](https://github.com/prosopo-io/protocol/) contract
+- setup a container with the provider code
 
 `make dev`
 
-- Substrate might take 5 minutes to start for the first time, so will want to run `make dev` again (`make dev` is reliant on substrate running)
+- Substrate might take a few minutes to start for the first time, so you will want to run `make dev` again (`make dev` is reliant on substrate running)
 
-Install deps on the provider container:
-`cd /usr/src/app && yarn`
+Once `make dev` is complete, you will be in a shell in the provider container.
+
+Dependencies should have been installed but you can install the dependencies if they are missing using the following command:
+
+```bash
+cd /usr/src/app && yarn
+```
+
+Default dev data should have been populated in the contract - one registered Provider and one Dapp. There will also be default captcha data in the mongoDB.
 
 Now you can work interact with the provider cli or start the api server.
+
+# CLI
+
+The `PROVIDER_MNEMONIC` env variable must be set for any commands that interact with the Prosopo contract.
+
+## Register a provider
+
+```bash
+yarn start provider_register --fee=10 --serviceOrigin=https://localhost:8282 --payee=Provider --address ADDRESS
+```
+
+## Update a provider
+
+```bash
+yarn start provider_update --fee=10 --serviceOrigin=https://localhost:8282 --payee=Provider --address ADDRESS
+```
+
+## Add a dataset for a Provider
+
+```bash
+yarn start provider_add_data_set --file /usr/src/data/captchas.json
+```
+# API
+
+Run the API server
+
+```bash
+yarn start --api
+```
+
+# Dev Setup Script
+The following commands can be run during development to populate the contract with dummy data.
+
+| Command | Function | Executed during `make dev` |
+| --------------- | --------------- | --------------- |
+| Dev command to setup the provider stored in the env variable `PROVIDER_MNEMONIC` with dummy data |`yarn setup provider` | 🗸 |
+| Dev command to setup the dapp contract stored in the env variable `DAPP_CONTRACT_ADDRESS` |`yarn setup dapp` | 🗸 |
+| Dev command to respond to captchas from a `DAPP_USER` |`yarn setup user` | ✗ |
+| Dev command to respond to captchas from a `DAPP_USER`, using the registered Provider to approve the response |`yarn setup user --approve` | ✗ |
+| Dev command to respond to captchas from a `DAPP_USER`, using the registered Provider to disapprove the response |`yarn setup user --disapprove` | ✗ |
 
 # Known problems & fixes
 1. OSX nigtly library missing:
