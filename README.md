@@ -71,7 +71,37 @@ yarn start provider_add_data_set --file /usr/src/data/captchas.json
 
 | Param | Description |
 | --------------- | --------------- |
-| File | JSON file containing details of captchas |
+| File | JSON file containing captchas |
+
+File format can be viewed [here](https://github.com/prosopo-io/provider/blob/master/tests/mocks/data/captchas.json).
+
+## De-register a Provider
+
+```bash
+yarn start provider_deregister --address ADDRESS
+```
+
+| Param | Description |
+| --------------- | --------------- |
+| Address | Address of the Provider |
+
+## Unstake funds
+
+```bash
+yarn start provider_unstake --value VALUE
+```
+
+| Param | Description |
+| --------------- | --------------- |
+| Value | The amount of funds to unstake from the contract |
+
+## List Provider accounts in contract
+
+```bash
+yarn start provider_accounts
+```
+
+
 
 # API
 
