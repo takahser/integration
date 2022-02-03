@@ -36,7 +36,15 @@ cd /usr/src/app && yarn
 
 Default dev data should have been populated in the contract - one registered Provider and one Dapp. There will also be default captcha data in the mongoDB.
 
-Now you can work interact with the provider cli or start the api server.
+Now you can work interact with the provider CLI, start the API server, or run the tests.
+
+## Tests
+
+The provider tests can now be run from inside the container using
+
+```bash
+yarn test
+```
 
 ## Command Line Interface
 
