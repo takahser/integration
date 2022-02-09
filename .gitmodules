@@ -13,4 +13,4 @@
 [submodule "redspot"]
 	path = redspot
 	url = git@github.com:prosopo-io/redspot.git
-    branch = milestone1
+    branch = master
