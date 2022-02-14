@@ -53,7 +53,7 @@ echo "Installing packages for redspot and building"
 docker exec -it $CONTAINER_NAME zsh -c 'cd /usr/src/redspot && yarn && yarn build'
 
 echo "Sending funds to the Provider account and registering the provider"
-docker exec -it $CONTAINER_NAME zsh -c 'yarn && yarn build && yarn setup provider && yarn setup dapp'
+docker exec -it $CONTAINER_NAME zsh -c 'yarn && yarn workspaces foreach run build && cd packages/core && yarn setup provider && yarn setup dapp'
 
 echo "Dev env up! You can now interact with the provider-api."
 docker exec -it $CONTAINER_NAME zsh
