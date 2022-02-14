@@ -11,8 +11,8 @@
 	url = git@github.com:prosopo-io/protocol.git
     branch = master
 [submodule "procaptcha"]
-    path = protocol
-    url = git@github.com:prosopo-io/protcaptcha.git
+	path = procaptcha
+	url = git@github.com:prosopo-io/procaptcha.git
     branch = workspaces
 [submodule "redspot"]
 	path = redspot
