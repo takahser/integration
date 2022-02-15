@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # generate a mnemonic for the provider
 IFS=$'
 '

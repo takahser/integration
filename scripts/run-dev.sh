@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!!!!!!!!! FOLLOW SUBSTRATE SETUP INITIALLY AT https://docs.substrate.io/v3/getting-started/installation/ !!!!!!!!!!!!!!
-
 # spin up the substrate node
 docker compose up substrate-node -d
 echo "Waiting for the substrate node to start up..."
@@ -22,7 +20,7 @@ echo "Installing packages for dapp-example, building and deploying contract"
 docker exec -it $CONTAINER_NAME zsh -c 'cd /usr/src/dapp-example && yarn && yarn build && { DAPP_CONTRACT_ADDRESS=$(yarn deploy | tee /dev/fd/3 | grep \x27contract address:\x27 | awk -F \x27:  \x27 \x27{print $2}\x27); } 3>&1 && export DAPP_CONTRACT_ADDRESS=$DAPP_CONTRACT_ADDRESS'
 
 echo "Generating provider mnemonic"
-docker exec -it $CONTAINER_NAME zsh -c './docker/dev.dockerfile.generate.provider.mnemonic.sh'
+docker exec -it $CONTAINER_NAME zsh -c '/home/root/dev.dockerfile.generate.provider.mnemonic.sh'
 
 echo "Sending funds to the Provider account and registering the provider"
 docker exec -it $CONTAINER_NAME zsh -c 'yarn && yarn build && cd packages/core && yarn setup provider && yarn setup dapp'
