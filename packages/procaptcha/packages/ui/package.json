@@ -1,0 +1,29 @@
+{
+  "author": "Chris Taylor <chris@prosopo.io>",
+  "name": "@prosopo/procaptcha-ui",
+  "contributors": [
+    "Sinisa Canak"
+  ],
+  "license": "GPL-3.0",
+  "packageManager": "yarn@3.0.1",
+  "private": true,
+  "sideEffects": false,
+  "type": "commonjs",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prosopo-io/procaptcha.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b ./ --verbose"
+  },
+  "dependencies": {
+    "@prosopo/contract": "workspace:*"
+  },
+  "resolutions": {
+    "typescript": "^4.5.5"
+  }
+}

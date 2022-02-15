@@ -2,7 +2,7 @@
 	path = dapp-example
 	url = git@github.com:prosopo-io/dapp-example.git
 	branch = master
-[submodule "provider"]
+[submodule "./packages/provider"]
 	path = provider
 	url = git@github.com:prosopo-io/provider.git
 	branch = workspaces
@@ -10,7 +10,7 @@
 	path = protocol
 	url = git@github.com:prosopo-io/protocol.git
     branch = master
-[submodule "procaptcha"]
+[submodule "./packages/procaptcha"]
 	path = procaptcha
 	url = git@github.com:prosopo-io/procaptcha.git
     branch = workspaces

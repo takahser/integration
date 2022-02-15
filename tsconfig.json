@@ -1,0 +1,24 @@
+{
+  "exclude": [
+    "build/**/*",
+    "**/build/**/*"
+  ],
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "declaration": true,
+    "resolveJsonModule": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": true,
+    "baseUrl": ".",
+    "skipLibCheck": true
+
+  },
+  "include": ["./packages/**/**/*"]
+}

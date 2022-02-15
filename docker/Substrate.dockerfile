@@ -27,7 +27,7 @@ WORKDIR "substrate"
 RUN stat ./target/release/
 
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
-COPY ./boot.sh /home/root/boot.sh
+COPY ./Substrate.dockerfile.boot.sh /home/root/boot.sh
 USER root
 RUN chmod +x /home/root/boot.sh
 CMD /home/root/boot.sh

@@ -1,20 +1,24 @@
 {
   "name": "integration",
-  "version": "1.0.0",
-  "stableVersion": "1.0.0",
+  "version": "0.0.0",
+  "stableVersion": "0.0.0",
   "author": "Prosopo",
   "repository": {
     "type": "git",
     "url": "https://github.com/prosopo-io/integration.git"
+  },
+  "scripts": {
+    "build": "yarn tsc -b --verbose"
   },
   "private": true,
   "engines": {
     "node": ">=8.2.0"
   },
   "workspaces": [
-    "provider",
-    "procaptcha"
+    "packages/*"
   ],
-  "packageManager": "yarn@3.1.1"
-
+  "packageManager": "yarn@3.1.1",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
 }
