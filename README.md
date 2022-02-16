@@ -149,9 +149,13 @@ The following commands can be run during development to populate the contract wi
 | Dev command to respond to captchas from a `DAPP_USER`, using the registered Provider to disapprove the response |`yarn setup user --disapprove` | ✗ |
 
 # Known problems & fixes
-1. OSX nigtly library missing:
+1. OSX nightly library missing:
 ```
 error: "/Users/user/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/Cargo.lock" does not exist, unable to build with the standard library, try:
         rustup component add rust-src --toolchain nightly-x86_64-apple-darwin
 ```
-   - please try running: `rustup component add rust-src --toolchain nightly-x86_64-apple-darwin`
+   - please try running:
+  ```bash
+  rustup install nightly-x86_64-apple-darwin
+  rustup component add rust-src --toolchain nightly-x86_64-apple-darwin
+  ```
