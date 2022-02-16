@@ -9,9 +9,8 @@ RUN cd /home/root/binaryen && ninja install
 RUN cp /home/root/binaryen/install/bin/* /usr/bin && cp /home/root/binaryen/install/include/* /usr/include && cp /home/root/binaryen/install/lib/* /usr/lib
 RUN rm -rf /home/root/binaryen
 RUN apk add curl zsh
-COPY ./docker/dev.dockerfile.generate.provider.mnemonic.sh /home/root/dev.dockerfile.generate.provider.mnemonic.sh
 USER root
-RUN chmod +x /home/root/dev.dockerfile.generate.provider.mnemonic.sh
+RUN chmod +x /usr/src/docker/dev.dockerfile.generate.provider.mnemonic.sh
 ENV USER=node
 RUN mkdir -p /usr/src && chown -R $USER:$USER /usr/src
 USER $USER
