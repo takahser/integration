@@ -15,18 +15,22 @@ Start by pulling submodules using
 
 `make setup`
 
-And run the dev script, which will perform the following tasks:
-- spin up substrate in a container, running in contracts mode (initial build takes a long time)
-- deploy the [dapp-example](https://github.com/prosopo-io/dapp-example) contract
-- deploy the [prosopo](https://github.com/prosopo-io/protocol/) contract
-- setup a container with the provider code
-- setup a mongoDB container
+And then run the `make dev` script, which will perform the following tasks:
+
+1. Spins up a substrate node container
+2. Builds and deploys the [prosopo protocol](https://github.com/prosopo-io/protocol/) contract using //Alice account, capturing resultant contract address in the environment variable `CONTRACT_ADDRESS`
+2. Builds and deploys the [dapp-example](https://github.com/prosopo-io/dapp-example) contract using //Alice account, capturing resultant contract address in the environment variable `DAPP_CONTRACT_ADDRESS`
+3. Generates a provider mnemonic and sets the `PROVIDER_MNEMONIC` and `PROVIDER_ADDRESS` environment variables locally
+4. Spins up a mongodb container
+5. Spins up the provider container, passing through environment variables `CONTRACT_ADDRESS`, `DAPP_CONTRACT_ADDRESS`, `PROVIDER_MNEMONIC`, and `PROVIDER_ADDRESS`
+6. Builds redspot in the provider container
+7. Builds the provider code in the provider container
+8. Sets up the provider specified in `PROVIDER_MNEMONIC` and sets up the dapp specified in `DAPP_CONTRACT_ADDRESS`
+9. Opens a `zsh` shell inside the provider container at `/usr/src/app`
 
 `make dev`
 
-- Substrate might take a few minutes to start for the first time, so you will want to run `make dev` again (`make dev` is reliant on substrate running)
-
-Once `make dev` is complete, you will be in a shell in the provider container.
+Once `make dev` is complete, you will be in a shell in the provider container `/usr/src/app`, which is the root of the provider repo.
 
 Dependencies should have been installed but you can install the dependencies using the following command if they are missing:
 
