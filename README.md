@@ -6,9 +6,9 @@ Integrates protocol and provider for development purposes
 - docker (tested on v20.10.8, used 4CPUs, 6GB of memory, 2GB of swap)
 - binaryen
 - follow instructions to install the Substrate dependencies [here](https://docs.substrate.io/v3/getting-started/installation/)
+  - if it asks you to run something like this `rustup component add rust-src --toolchain nightly-x86_64-apple-darwin` then please do it (OSX)
 - cargo contract (`cargo install cargo-contract --vers ^0.16 --force --locked`)
-- follow instructions to install dependencies in [protocol/README.md](./protocol/README.md)
-- if it asks you to run something like this `rustup component add rust-src --toolchain nightly-x86_64-apple-darwin` then please do it (OSX)
+
 
 # Usage
 Start by pulling submodules using
@@ -16,7 +16,7 @@ Start by pulling submodules using
 `make setup`
 
 And run the dev script, which will perform the following tasks:
-- spin up substrate in a container, running in contracts mode
+- spin up substrate in a container, running in contracts mode (initial build takes a long time)
 - deploy the [dapp-example](https://github.com/prosopo-io/dapp-example) contract
 - deploy the [prosopo](https://github.com/prosopo-io/protocol/) contract
 - setup a container with the provider code
