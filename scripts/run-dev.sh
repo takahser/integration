@@ -3,7 +3,12 @@
 # spin up the substrate node
 docker compose up substrate-node -d
 echo "Waiting for the substrate node to start up..."
-sleep 10
+SUBSTRATE_CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q -f name=substrate-node))
+RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" $SUBSTRATE_CONTAINER_IP:9944)
+while [ "$RESPONSE_CODE" != '400' ];
+  do RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" $SUBSTRATE_CONTAINER_IP:9944);
+  sleep 1;
+done;
 
 docker compose up mongodb -d
 docker compose up provider-api -d
