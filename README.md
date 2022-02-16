@@ -40,13 +40,13 @@ Now you can work interact with the provider CLI, start the API server, or run th
 
 ## Tests
 
+> Please note your `PROVIDER_MNEMONIC`, `PROVIDER_ADDRESS` and `DAPP_CONTRACT_ADDRESS` environment variables must be set for the tests to run. You can check these with `echo $PROVIDER_MNEMONIC`
+
 The provider tests can now be run from inside the container using
 
 ```bash
 yarn test
 ```
-
-> Please note your `PROVIDER_MNEMONIC` must be set for the tests to run. You can check this with `echo $PROVIDER_MNEMONIC`
 
 ## Command Line Interface
 
