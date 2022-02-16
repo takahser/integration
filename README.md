@@ -46,6 +46,8 @@ The provider tests can now be run from inside the container using
 yarn test
 ```
 
+> Please note your `PROVIDER_MNEMONIC` must be set for the tests to run. You can check this with `echo $PROVIDER_MNEMONIC`
+
 ## Command Line Interface
 
 The `PROVIDER_MNEMONIC` env variable must be set for any commands that interact with the Prosopo contract.
