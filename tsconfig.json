@@ -17,8 +17,39 @@
     "allowSyntheticDefaultImports": true,
     "noEmitOnError": true,
     "baseUrl": ".",
-    "skipLibCheck": true
-
+    "skipLibCheck": true,
+    "paths": {
+      "@prosopo/contract": [
+        "./packages/provider/packages/contract/src"
+      ],
+      "@prosopo/contract/*": [
+        "./packages/provider/packages/contract/src/*"
+      ]
+    }
   },
-  "include": ["./packages/**/**/*"]
+  "include": [
+    "./packages/**/**/*"
+  ],
+  "references": [
+    {
+      "path": "packages/procaptcha",
+      "name": "@prosopo/procaptcha"
+    },
+    {
+      "path": "packages/procaptcha/packages/ui",
+      "name": "@prosopo/procaptcha-ui"
+    },
+    {
+      "path": "packages/provider",
+      "name": "@prosopo/provider"
+    },
+    {
+      "path": "packages/provider/packages/contract",
+      "name": "@prosopo/contract"
+    },
+    {
+      "path": "packages/provider/packages/core",
+      "name": "@prosopo/provider-core"
+    }
+  ]
 }
