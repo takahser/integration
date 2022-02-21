@@ -24,3 +24,6 @@
 [submodule "packages/provider"]
 	path = packages/provider
 	url = git@github.com:prosopo-io/provider.git
+[submodule "packages/redspot"]
+	path = packages/redspot
+	url = git@github.com:prosopo-io/redspot.git
