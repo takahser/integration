@@ -7,6 +7,7 @@
     "target": "ES2019",
     "module": "commonjs",
     "declaration": true,
+    "composite":  true,
     "resolveJsonModule": true,
     "noImplicitReturns": false,
     "noUnusedLocals": false,
@@ -24,6 +25,30 @@
       ],
       "@prosopo/contract/*": [
         "./packages/provider/packages/contract/src/*"
+      ],
+      "@prosopo/provider": [
+        "./packages/provider/packages/provider"
+      ],
+      "@prosopo/provider/*": [
+        "./packages/provider/packages/provider/*"
+      ],
+      "@prosopo/provider-core": [
+        "./packages/provider/packages/provider-core/src"
+      ],
+      "@prosopo/provider-core/*": [
+        "./packages/provider/packages/provider-core/src/*"
+      ],
+      "@prosopo/procaptcha": [
+        "./packages/provider/packages/procaptcha"
+      ],
+      "@prosopo/procaptcha/*": [
+        "./packages/provider/packages/procaptcha/*"
+      ],
+      "@prosopo/procaptcha-ui": [
+        "./packages/procaptcha/packages/procaptcha-ui/src"
+      ],
+      "@prosopo/procaptcha-ui/*": [
+        "./packages/procaptcha/packages/procaptcha-ui/src/*"
       ]
     }
   },
