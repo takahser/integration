@@ -4,21 +4,11 @@
     "**/build/**/*"
   ],
   "compilerOptions": {
-    "target": "ES2019",
     "module": "commonjs",
-    "declaration": true,
-    "composite":  true,
-    "resolveJsonModule": true,
-    "noImplicitReturns": false,
-    "noUnusedLocals": false,
-    "noImplicitThis": false,
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "noEmitOnError": true,
-    "baseUrl": ".",
+    "sourceMap": true,
+    "composite": true,
     "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
       "@prosopo/contract": [
         "./packages/provider/packages/contract/src"

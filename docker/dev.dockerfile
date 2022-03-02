@@ -10,7 +10,7 @@ RUN cp /home/root/binaryen/install/bin/* /usr/bin && cp /home/root/binaryen/inst
 RUN rm -rf /home/root/binaryen
 RUN apk add curl zsh
 USER root
-RUN chmod +x /usr/src/docker/dev.dockerfile.generate.provider.mnemonic.sh
+# RUN chmod +x /usr/src/docker/dev.dockerfile.generate.provider.mnemonic.sh
 ENV USER=node
 RUN mkdir -p /usr/src && chown -R $USER:$USER /usr/src
 USER $USER
