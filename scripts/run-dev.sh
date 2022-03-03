@@ -12,6 +12,9 @@ while [ "$RESPONSE_CODE" != '400' ];
   sleep 1;
 done;
 
+# install redspot packages
+cd redspot && yarn && yarn build
+
 # install protocol packages
 $(cd protocol && yarn);
 
