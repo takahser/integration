@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "yarn workspaces foreach run build",
+    "start": "yarn workspace @prosopo/provider-core run start",
     "fix-typescript-references": "utils-typescript-references"
   },
   "private": true,
