@@ -36,6 +36,9 @@ docker exec -t $CONTAINER_NAME zsh -c "/usr/src/docker/dev.dockerfile.deploy.con
 echo "Generating provider mnemonic"
 docker exec -it $CONTAINER_NAME zsh -c '/usr/src/docker/dev.dockerfile.generate.provider.mnemonic.sh /usr/src/protocol'
 
+echo "Linking artifacts to provider folder"
+docker exect -it $CONTAINER_NAME zsh -c 'ln -s /usr/src/protocol/artifacts /usr/src/provider/artifacts'
+
 echo "Sending funds to the Provider account and registering the provider"
 docker exec -it --env-file env $CONTAINER_NAME zsh -c 'printenv && cd /usr/src/provider && yarn && yarn build && yarn setup provider && yarn setup dapp'
 
