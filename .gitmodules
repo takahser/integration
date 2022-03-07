@@ -1,15 +1,15 @@
 [submodule "dapp-example"]
 	path = dapp-example
 	url = git@github.com:prosopo-io/dapp-example.git
-	branch = milestone1
+	branch = master
 [submodule "provider"]
 	path = provider
 	url = git@github.com:prosopo-io/provider.git
-	branch = milestone1
+	branch = master
 [submodule "protocol"]
 	path = protocol
 	url = git@github.com:prosopo-io/protocol.git
-    branch = milestone1
+    branch = master
 [submodule "redspot"]
 	path = redspot
 	url = git@github.com:prosopo-io/redspot.git
