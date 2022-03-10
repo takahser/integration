@@ -9,12 +9,12 @@
 [submodule "packages/procaptcha"]
 	path = packages/procaptcha
 	url = git@github.com:prosopo-io/procaptcha.git
-        branch = workspaces
+    branch = workspaces
 [submodule "redspot"]
 	path = redspot
 	url = git@github.com:prosopo-io/redspot.git
-        branch = master
+    branch = master
 [submodule "packages/provider"]
 	path = packages/provider
 	url = git@github.com:prosopo-io/provider.git
-        branch = workspaces
+    branch = workspaces
