@@ -56,7 +56,7 @@ module.exports = {
         extraFileExtensions: ['.cjs', '.mjs'],
         warnOnUnsupportedTypeScriptVersion: false,
         project: [
-            './tsconfig.eslint.json',
+            './tsconfig.json',
         ],
         tsconfigRootDir: __dirname
     },

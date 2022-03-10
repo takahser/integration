@@ -10,7 +10,8 @@
   "scripts": {
     "build": "yarn workspaces foreach run build",
     "start": "yarn workspace @prosopo/provider-core run start",
-    "fix-typescript-references": "utils-typescript-references"
+    "fix-typescript-references": "utils-typescript-references",
+    "lint": "polkadot-dev-run-lint"
   },
   "private": true,
   "engines": {
@@ -23,6 +24,22 @@
   "packageManager": "yarn@3.2.0",
   "devDependencies": {
     "@goldstack/utils-typescript-references": "^0.1.5",
-    "ts-node": "^10.5.0"
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-import-newlines": "^1.2.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sort-destructure-keys": "^1.4.0",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.6.2"
   }
 }

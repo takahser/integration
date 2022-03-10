@@ -4,10 +4,20 @@
     "**/build/**/*"
   ],
   "compilerOptions": {
+    "target": "ES2019",
     "module": "commonjs",
-    "sourceMap": true,
-    "composite": true,
-    "skipLibCheck": true,
+    "declaration": true,
+    "resolveJsonModule": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strict": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": true,
     "baseUrl": ".",
     "paths": {
       "@prosopo/contract": [
@@ -49,10 +59,6 @@
     {
       "path": "packages/procaptcha",
       "name": "@prosopo/procaptcha"
-    },
-    {
-      "path": "packages/procaptcha/packages/ui",
-      "name": "@prosopo/procaptcha-ui"
     },
     {
       "path": "packages/provider",

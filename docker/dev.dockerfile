@@ -25,4 +25,5 @@ RUN . ~/.cargo/env && \
     rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-musl && \
     cargo install cargo-contract --vers ^0.16 --force --locked
 RUN yarn set version stable
+RUN yarn plugin import workspace-tools
 ENTRYPOINT ["tail", "-f", "/dev/null"]
