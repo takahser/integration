@@ -24,7 +24,4 @@ RUN . ~/.cargo/env && \
     rustup target add wasm32-unknown-unknown --toolchain nightly && \
     rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-musl && \
     cargo install cargo-contract --vers ^0.16 --force --locked
-RUN touch /usr/src/provider/yarn.lock
-RUN touch /usr/src/protocol/yarn.lock
-RUN touch /usr/src/dapp-example/yarn.lock
 ENTRYPOINT ["tail", "-f", "/dev/null"]
