@@ -77,6 +77,8 @@ CONTAINER_NAME=$(docker ps -q -f name=provider-api)
 rm env
 touch env
 
+docker exec -t $CONTAINER_NAME zsh -c 'cd /usr/src && yarn && yarn plugin import workspace-tools'
+
 if [[ $BUILD_REDSPOT == true ]];
   then echo "Installing packages for redspot and building"
   docker exec -t $CONTAINER_NAME zsh -c 'cd /usr/src/redspot && yarn && yarn build'
