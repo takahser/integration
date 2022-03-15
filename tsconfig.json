@@ -12,7 +12,7 @@
     "noUnusedLocals": false,
     "noImplicitThis": false,
     "noImplicitAny": false,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "strict": false,
     "esModuleInterop": true,
     "moduleResolution": "node",
