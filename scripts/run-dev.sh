@@ -95,13 +95,14 @@ echo "BUILD_REDSPOT: $BUILD_REDSPOT"
 echo "DEPLOY_PROTOCOL: $DEPLOY_PROTOCOL"
 echo "DEPLOY_DAPP: $DEPLOY_DAPP"
 
-if [[ $INSTALL_PACKAGES == true ]];
-  then docker exec -t "$CONTAINER_NAME" zsh -c 'cd /usr/src && yarn'
-fi
-
+# must be first as it is a dependency
 if [[ $BUILD_REDSPOT == true ]];
   then echo "Installing packages for redspot and building"
   docker exec -t "$CONTAINER_NAME" zsh -c 'cd /usr/src/redspot && yarn && yarn build'
+fi
+
+if [[ $INSTALL_PACKAGES == true ]];
+  then docker exec -t "$CONTAINER_NAME" zsh -c 'cd /usr/src && yarn'
 fi
 
 if [[ $DEPLOY_PROTOCOL == true ]];
