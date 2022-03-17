@@ -5,11 +5,11 @@
 [submodule "protocol"]
 	path = protocol
 	url = git@github.com:prosopo-io/protocol.git
-        branch = master
+    branch = master
 [submodule "packages/procaptcha"]
 	path = packages/procaptcha
 	url = git@github.com:prosopo-io/procaptcha.git
-    branch = workspaces
+    branch = master
 [submodule "redspot"]
 	path = redspot
 	url = git@github.com:prosopo-io/redspot.git
@@ -17,4 +17,4 @@
 [submodule "packages/provider"]
 	path = packages/provider
 	url = git@github.com:prosopo-io/provider.git
-    branch = workspaces
+    branch = master
