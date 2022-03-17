@@ -14,7 +14,7 @@ USER root
 ENV USER=node
 RUN mkdir -p /usr/src && chown -R $USER:$USER /usr/src
 USER $USER
-WORKDIR /usr/src/provider
+WORKDIR /usr/src
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN . ~/.cargo/env && \
@@ -24,5 +24,5 @@ RUN . ~/.cargo/env && \
     rustup target add wasm32-unknown-unknown --toolchain nightly && \
     rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-musl && \
     cargo install cargo-contract --vers ^0.16 --force --locked
-RUN yarn set version stable
+RUN yarn set version stable && yarn plugin import workspace-tools
 ENTRYPOINT ["tail", "-f", "/dev/null"]
