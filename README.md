@@ -27,22 +27,17 @@ make dev install build-provider deploy-protocol deploy-dapp build-redspot
 2. Creates and starts up a mongodb container
 3. Creates and starts up a provider container and connects to it in `zsh` shell at `/usr/src/
 
+### Flags
+
 The following flags are optional
 
-### `build_redspot`
-Builds the custom Prosopo redspot repository
-
-### `install`
-Install the workspace dependencies
-
-### `deploy_protocol`
-Deploy the Prosopo protocol contract to the Substrate node and stores `CONTRACT_ADDRESS` in `.env`
-
-### `deploy_dapp`
-Deploy an example dapp contract to the Substrate node and stores `DAPP_CONTRACT_ADDRESS` in `.env`
-
-### `build_provider`
-Generates a `PROVIDER_MNEMONIC` in `.env`, builds the provider repo, gives the provider funds, and registers them in the Prosopo contract
+| Flag            | Description |
+|-----------------| --------------- |
+| `build_redspot` | Builds the custom Prosopo redspot repository |
+| `install` | Install the workspace dependencies |
+| `deploy_protocol` | Deploy the Prosopo protocol contract to the Substrate node and stores `CONTRACT_ADDRESS` in `.env`|
+| `deploy_dapp` | Deploy an example dapp contract to the Substrate node and stores `DAPP_CONTRACT_ADDRESS` in `.env`|
+| `build_provider` | Generates a `PROVIDER_MNEMONIC` in `.env`, builds the provider repo, gives the provider funds, and registers them in the Prosopo contract|
 
 ## Provider Container
 
