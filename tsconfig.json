@@ -19,6 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "noEmitOnError": true,
     "baseUrl": ".",
+    "lib": ["esnext"],
     "paths": {
       "@prosopo/contract": [
         "./packages/provider/packages/contract/src"
