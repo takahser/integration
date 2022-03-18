@@ -39,7 +39,7 @@ The following flags are optional
 | `deploy_dapp` | Deploy an example dapp contract to the Substrate node and stores `DAPP_CONTRACT_ADDRESS` in `.env`|
 | `build_provider` | Generates a `PROVIDER_MNEMONIC` in `.env`, builds the provider repo, gives the provider funds, and registers them in the Prosopo contract|
 
-## Provider Container
+### Provider Container
 
 Once `make dev` is complete, you will be in a shell in the provider container `/usr/src/`, which is the root of the integration repo.
 
