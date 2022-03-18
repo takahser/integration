@@ -70,7 +70,13 @@ cd ./packages/provider/packages/core && yarn test
 
 ## Command Line Interface
 
-The `PROVIDER_MNEMONIC` env variable must be set for any commands that interact with the Prosopo contract.
+First, `cd` into the `core` package.
+
+```bash
+cd ./packages/provider/packages/core
+```
+
+Then you will be able to run the following commands.
 
 ### Register a provider
 
