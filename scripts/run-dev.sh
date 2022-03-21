@@ -74,7 +74,14 @@ if [ -z "$SUBSTRATE_CONTAINER_NAME" ];
   then echo "Substrate container not running, exiting";
   exit 1
 fi
-SUBSTRATE_CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$SUBSTRATE_CONTAINER_NAME")
+
+# Mac OSX cannot curl docker container https://stackoverflow.com/a/45390994/1178971
+if [[ "$OSTYPE" == "darwin"* ]]; then
+        SUBSTRATE_CONTAINER_IP="0.0.0.0"
+else
+        SUBSTRATE_CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$SUBSTRATE_CONTAINER_NAME")
+fi
+
 RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" "$SUBSTRATE_CONTAINER_IP":9944)
 while [ "$RESPONSE_CODE" != '400' ]; do
   RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" "$SUBSTRATE_CONTAINER_IP":9944)
