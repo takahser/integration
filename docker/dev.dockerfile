@@ -7,9 +7,7 @@ RUN apk add git clang curl libressl-dev llvm eudev-dev cmake ninja && \
     cd /home/root/binaryen && ninja install && \
     cp /home/root/binaryen/install/bin/* /usr/bin && cp /home/root/binaryen/install/include/* /usr/include && cp /home/root/binaryen/install/lib/* /usr/lib && \
     rm -rf /home/root/binaryen && \
-    apk add curl zsh && \
-    apk autoremove -y && \
-    apk purge -y --auto-remove
+    apk add curl zsh
 USER root
 ENV USER=node
 RUN mkdir -p /usr/src && chown -R $USER:$USER /usr/src
