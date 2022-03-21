@@ -13,7 +13,7 @@
     "build:contract": "yarn workspace @prosopo/contract run build",
     "start": "yarn workspace @prosopo/provider-core run start",
     "fix-typescript-references": "utils-typescript-references",
-    "lint": "polkadot-dev-run-lint"
+    "test": "yarn workspace @prosopo/provider-core run test"
   },
   "private": true,
   "engines": {

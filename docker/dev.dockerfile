@@ -25,5 +25,4 @@ RUN . ~/.cargo/env && \
     rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-musl && \
     cargo install cargo-dylint dylint-link
 RUN . ~/.cargo/env && cargo install cargo-contract --vers ^0.17 --force
-RUN yarn set version stable && yarn plugin import workspace-tools
 ENTRYPOINT ["tail", "-f", "/dev/null"]

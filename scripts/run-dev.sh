@@ -58,6 +58,10 @@ for arg in "$@"; do
         ;;
     esac
 done
+
+# create an empty .env file
+touch .env
+
 # Docker compose doesn't like .env variables that contain spaces and are not quoted
 # https://stackoverflow.com/questions/69512549/key-cannot-contain-a-space-error-while-running-docker-compose
 sed -i -e "s/PROVIDER_MNEMONIC=\"*\([a-z ]*\)\"*/PROVIDER_MNEMONIC=\"\1\"/g" .env
@@ -77,7 +81,6 @@ while [ "$RESPONSE_CODE" != '400' ]; do
   sleep 1
 done
 
-
 docker compose up mongodb -d
 docker compose up provider-api -d
 
@@ -86,14 +89,14 @@ sed -i -e 's/PROVIDER_MNEMONIC="\([a-z ]*\)"/PROVIDER_MNEMONIC=\1/g' .env
 
 CONTAINER_NAME=$(docker ps -q -f name=provider-api)
 
-# create an empty .env file
-touch .env
-
 echo "INSTALL_PACKAGES: $INSTALL_PACKAGES"
 echo "BUILD_PROVIDER: $BUILD_PROVIDER"
 echo "BUILD_REDSPOT: $BUILD_REDSPOT"
 echo "DEPLOY_PROTOCOL: $DEPLOY_PROTOCOL"
 echo "DEPLOY_DAPP: $DEPLOY_DAPP"
+
+# make sure yarn is set to latest and workspace tools are installed
+docker exec -t "$CONTAINER_NAME" zsh -c "/usr/src/docker/dev.dockerfile.upgrade.yarn.sh"
 
 # must be first as it is a dependency
 if [[ $BUILD_REDSPOT == true ]];
