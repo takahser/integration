@@ -22,6 +22,6 @@ RUN . ~/.cargo/env && \
     rustup update &&\
     rustup update nightly &&\
     rustup target add wasm32-unknown-unknown --toolchain nightly && \
-    rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-musl && \
+    rustup component add rust-src --toolchain nightly && \
     cargo install cargo-contract --vers ^0.16 --force --locked
 ENTRYPOINT ["tail", "-f", "/dev/null"]

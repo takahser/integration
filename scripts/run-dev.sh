@@ -8,10 +8,10 @@ if [ -z "$SUBSTRATE_CONTAINER_NAME" ];
   then echo "Substrate container not running, exiting";
   exit 1
 fi
-SUBSTRATE_CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $SUBSTRATE_CONTAINER_NAME)
-RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" $SUBSTRATE_CONTAINER_IP:9944)
+SUBSTRATE_CONTAINER_URL=$(docker inspect -f '{{$p := (index (index .NetworkSettings.Ports "9944/tcp") 0)}}{{$p.HostIp}}:{{$p.HostPort}}' $SUBSTRATE_CONTAINER_NAME)
+RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" $SUBSTRATE_CONTAINER_URL)
 while [ "$RESPONSE_CODE" != '400' ]; do
-  RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" $SUBSTRATE_CONTAINER_IP:9944)
+  RESPONSE_CODE=$(curl -sI -o /dev/null -w "%{http_code}\n" $SUBSTRATE_CONTAINER_URL)
   sleep 1
 done
 
