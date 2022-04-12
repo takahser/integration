@@ -29,6 +29,10 @@ RUN . ~/.cargo/env && \
 
 FROM debian:bookworm-slim
 
+RUN apt-get update && \
+    apt-get upgrade -y --only-upgrade libstdc++6
+
+
 COPY --from=builder /substrate/target/release/substrate /usr/local/bin
 COPY --from=builder /substrate/target/release/subkey /usr/local/bin
 COPY --from=builder /substrate/target/release/node-template /usr/local/bin
@@ -37,6 +41,7 @@ COPY --from=builder /substrate/target/release/chain-spec-builder /usr/local/bin
 EXPOSE 30333 9933 9944 9615
 
 USER root
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
 ENTRYPOINT [ "substrate", \
     "--dev", \
     "--tmp", \
