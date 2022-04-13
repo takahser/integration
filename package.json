@@ -8,12 +8,14 @@
     "url": "git+https://github.com/prosopo-io/integration.git"
   },
   "scripts": {
-    "build": "yarn workspaces foreach run build",
+    "build": "yarn workspace @prosopo/provider-core run build && yarn workspace @prosopo/contract run build",
     "build:core": "yarn workspace @prosopo/provider-core run build",
     "build:contract": "yarn workspace @prosopo/contract run build",
+    "setup": "yarn workspace @prosopo/provider-core run setup",
     "start": "yarn workspace @prosopo/provider-core run start",
     "fix-typescript-references": "utils-typescript-references",
-    "test": "yarn workspace @prosopo/provider-core run test"
+    "test": "yarn workspace @prosopo/provider-core run test",
+    "lint": "yarn workspace @prosopo/provider-core run eslint --fix src && yarn workspace @prosopo/contract run eslint --fix src"
   },
   "private": true,
   "engines": {
