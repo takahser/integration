@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # spin up the substrate node
-docker compose up substrate-node -d
+docker compose up substrate-node -d --no-build
 echo "Waiting for the substrate node to start up..."
 SUBSTRATE_CONTAINER_NAME=$(docker ps -q -f name=substrate-node)
 if [ -z "$SUBSTRATE_CONTAINER_NAME" ];
